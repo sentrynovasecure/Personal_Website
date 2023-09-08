@@ -1,16 +1,16 @@
-
 /* Style pour le fond gris foncé */
 body {
   background-color: #333;
-  color: white;
-  font-family: "MontSerrat", sans-serif;
+  color: rgb(255, 255, 255);
+  font-family: "Montserrat", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between; /* Centrer verticalement avec un espace entre le header et le footer */
   min-height: 100vh;
   margin: 0;
 }
+
 img {
   width: 150px;
   height: 150px;
@@ -25,11 +25,12 @@ img {
 /* Style pour le header */
 header {
   text-align: center;
+  margin: 20px 0; /* Ajout d'une marge en haut et en bas */
 }
 
 /* Style pour le nom */
 h1 {
-  font-family: "Bebas Neue", sans-serif;
+  font-family: 'Farro', sans-serif;
   font-size: 36px;
   margin: 10px 0;
 }
@@ -42,34 +43,53 @@ h2 {
 /* Style pour le texte du paragraphe */
 p {
   font-size: 14px;
-  max-width: 220px;
-  text-align: center;
+  max-width: 300px;
   text-align: justify;
-  margin: 20px auto;
+  margin-top: 50px;
+}
+
+section {
+  text-align: center;
 }
 
 /* Styles pour les liens personnalisés */
-.link {
-  text-align: center; /* Centrer horizontalement */
-  margin: 20px auto; /* Centrer verticalement et ajouter un espace autour */
-}
-
-.link a, 
-.link button {
+.link a {
   text-decoration: none;
   color: #0073e6; /* Couleur commune pour le texte */
   font-weight: bold;
   font-size: 16px;
   display: inline-block;
-  padding: 10px 20px;
+  padding: 10px 30px;
   border-radius: 5px;
-  margin: 0 10px;
+  margin: 20px 10px;
   transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
-.link a:hover,
-.link button:hover {
+.link a:hover {
   background-color: #005bbd;
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Style pour le deuxième lien encadré en blanc */
+.link2 a {
+  text-decoration: none;
+  color: #0073e6; /* Couleur commune pour le texte */
+  font-weight: bold;
+  font-size: 16px;
+  display: inline-block;
+  padding: 10px 50px;
+  border-radius: 5px;
+  margin: 0px 10px;
+  margin-bottom: 100px;
+  background-color: white; /* Ajout d'une bordure blanche */
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.link2 a:hover {
+  background-color: #1FDF64;
+  color: white;
   transform: scale(1.05);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
@@ -77,11 +97,10 @@ p {
 
 /* Style pour le footer noir */
 footer {
+  font-size: 14px;
   background-color: black;
   color: white;
   text-align: center;
-  padding: 40px 0;
+  padding: 20px 0;
   width: 100%;
-  position: absolute;
-  bottom: 0;
 }
