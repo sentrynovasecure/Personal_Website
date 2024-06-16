@@ -1,106 +1,260 @@
-/* Style pour le fond gris foncé */
-body {
-  background-color: #333;
-  color: rgb(255, 255, 255);
-  font-family: "Montserrat", sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between; /* Centrer verticalement avec un espace entre le header et le footer */
-  min-height: 100vh;
-  margin: 0;
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-img {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  position: static;
-  bottom: 10px;
-  left: 20px;
-  border-radius: 100px;
-  z-index: 1;
+body, html {
+    width: 100%;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    background: #121212; /* Dark background */
+    color: #b3b3b3; /* Light grey text */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-/* Style pour le header */
-header {
-  text-align: center;
-  margin: 20px 0; /* Ajout d'une marge en haut et en bas */
+.name {
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    font-weight: 200;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
 }
 
-/* Style pour le nom */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    text-align: center;
+}
+
+.profile-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 50px 0px 20px;
+    box-shadow: 0px 0px 30px #686868;
+    transition: transform 0.3s ease-in-out;
+}
+
+.profile-image:hover {
+    transform: scale(1.1);
+}
+
 h1 {
-  font-family: 'Farro', sans-serif;
-  font-size: 36px;
-  margin: 10px 0;
+    padding-bottom: 30px;
 }
 
-/* Style pour la localisation */
-h2 {
-  font-size: 18px;
+a {
+    color: #1DB954;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s;
 }
 
-/* Style pour le texte du paragraphe */
-p {
-  font-size: 14px;
-  max-width: 300px;
-  text-align: justify;
-  margin-top: 50px;
+a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #1DB954;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
 }
 
-section {
-  text-align: center;
+a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
 
-/* Styles pour les liens personnalisés */
-.link a {
-  text-decoration: none;
-  color: #0073e6; /* Couleur commune pour le texte */
-  font-weight: bold;
-  font-size: 16px;
-  display: inline-block;
-  padding: 10px 30px;
-  border-radius: 5px;
-  margin: 20px 10px;
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+a:hover {
+    color: #14833b;
 }
 
-.link a:hover {
-  background-color: #005bbd;
-  color: white;
-  transform: scale(1.05);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+.location {
+    font-size: 1.2rem;
+    color: #686868; /* Light grey text for subtle info */
+    margin-bottom: 30px;
 }
 
-/* Style pour le deuxième lien encadré en blanc */
-.link2 a {
-  text-decoration: none;
-  color: #0073e6; /* Couleur commune pour le texte */
-  font-weight: bold;
-  font-size: 16px;
-  display: inline-block;
-  padding: 10px 50px;
-  border-radius: 5px;
-  margin: 0px 10px;
-  margin-bottom: 100px;
-  background-color: white; /* Ajout d'une bordure blanche */
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+.bio {
+    background: rgba(255, 255, 255, 0.1); /* Translucent white for the bio background */
+    border-radius: 10px;
+    padding: 20px; /* Adjusted padding for spacing inside the bio */
+    margin-bottom: 20px;
+    max-width: 800px; /* You can adjust this value to suit your design */
+    width: 100%; /* It will take up 100% of the container width until it reaches max-width */
+    margin-left: auto; /* These two margin properties will center your bio box */
+    margin-right: auto;
+    text-align: justify; /* Justify text */
+    opacity: 0.5; /* Initial opacity for faded effect */
+    transition: opacity 0.9999s ease-in-out; /* Transition for opacity change */
+    position: relative; /* For sparkles */
+    z-index: 1; /* Ensure it's above the sparkles */
 }
 
-.link2 a:hover {
-  background-color: #1FDF64;
-  color: white;
-  transform: scale(1.05);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+.bio:hover {
+    opacity: 1 /* Full opacity on hover */
 }
 
+.bio p, .bio ul {
+    color: #B3B3B3; /* Grey text for readable contrast */
+    line-height: 1.6;
+    margin-bottom: 1em; /* Adds some space below each paragraph and list */
+}
 
-/* Style pour le footer noir */
+.bio ul {
+    list-style-type: disc; /* This ensures your list items have bullets */
+    padding-left: 20px; /* This gives some space inside the list */
+    text-align: left;
+}
+
+.sparkles {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0; /* Ensure sparkles are behind the content */
+}
+
+.sparkle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgb(148, 148, 148);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: sparkle-animation linear infinite;
+    opacity: 0; /* Start with opacity 0 for fade-in effect */
+    transition: opacity 0.8s ease-in-out; /* Smooth appearance and disappearance */
+}
+
+@keyframes sparkle-animation {
+    0% {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+    100% {
+        transform: translate3d(200px, 200px, 0);
+        opacity: 0;
+    }
+}
+
+.social-nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.social-link {
+    text-decoration: none;
+    color: #1DB954; /* Spotify green for links */
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 2px solid #1DB954; /* Spotify green for borders */
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    display: block; /* Makes each link a block element */
+    width: 200px; /* Specific width for the links */
+    margin: 5px auto; /* Reduced space above and below each link, auto centers horizontally */
+    position: relative; /* For the complex button effect */
+    overflow: hidden; /* To hide the animation overflow */
+}
+
+.social-link::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(0,0,0,0.05);
+    transition: all 0.75s ease-in-out;
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+}
+
+.social-link:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.social-link:hover {
+    background: #1DB954; /* Spotify green for hover state */
+    color: #121212; /* Dark color for text on hover */
+    border-color: #1DB954;
+}
+
+.cv-download {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.cv-link {
+    color: #1DB954;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s;
+    display: inline-block; /* To make sure it behaves like a text link */
+}
+
+.cv-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -2px; /* Adjusted to be below the text */
+    left: 0;
+    background-color: #1DB954;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.cv-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.cv-link:hover {
+    color: #14833b;
+}
+
 footer {
-  font-size: 14px;
-  background-color: black;
-  color: white;
-  text-align: center;
-  padding: 20px 0;
-  width: 100%;
+    margin-top: 100px;
+}
+
+footer p {
+    color: #686868;
+    margin-top: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .bio, .social-nav {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social-link {
+        margin-top: 15px; /* Espace au-dessus de chaque lien */
+        display: block; /* Fait en sorte que chaque lien soit sur sa propre ligne */
+        width: calc(100% - 60px); /* Calcule la largeur du lien pour occuper toute la largeur du parent moins 60px */
+        margin-left: auto; /* Centre le lien horizontalement */
+        margin-right: auto; /* Centre le lien horizontalement */
+    }
 }
